@@ -90,3 +90,8 @@ gem "refile-mini_magick"
 
 #jQuety
 gem 'jquery-rails'
+
+
+#デバッグ処理
+gem 'pry-byebug'
+
