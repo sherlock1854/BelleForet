@@ -93,5 +93,5 @@ gem 'jquery-rails'
 
 
 #デバッグ処理
-gem 'pry-byebug'
+#gem 'pry-byebug'
 
