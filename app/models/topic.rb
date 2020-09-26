@@ -1,2 +1,6 @@
 class Topic < ApplicationRecord
+
+
+
+
 end
