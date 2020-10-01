@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       when Admin
         admin_top_path
       when Customer
-          root_path
+        root_path
       end
     end
 
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       else
         new_customer_session_path
       end
-  end
+    end
 
 
 end
