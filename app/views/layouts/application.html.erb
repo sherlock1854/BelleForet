@@ -1,15 +1,21 @@
 <!DOCTYPE html>
+
+
 <html>
-  <head>
-    <title>BelleForet</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <title>BelleForet</title>
+            <%= csrf_meta_tags %>
+            <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+            <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+            <script type="text/javascript" src=”jquery.min.js”></script>
+        </head>
+
+
+        <body>
+            <%= yield %>
+        </body>
+
 </html>
