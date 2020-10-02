@@ -14,3 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+
+
+
+//customer_top
+$(function() {
+    $('.top_image').slick({
+
+    });
+});

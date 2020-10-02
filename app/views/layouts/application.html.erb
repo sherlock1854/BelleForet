@@ -11,11 +11,56 @@
             <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
             <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
             <script type="text/javascript" src=”jquery.min.js”></script>
+            <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
         </head>
 
 
         <body>
-            <%= yield %>
+
+            <div class="container">
+                <div class="logo">
+                    <% if current_admin %>
+                        <%=link_to 'Belle Foret', admin_top_path %>
+                    <% elsif current_customer %>
+                        <%=link_to 'Belle Foret', root_path %>
+                    <% else %>
+                        <%=link_to 'Belle Foret', root_path %>
+                    <% end %>
+                </div>
+            </div>
+
+
+　　　　　　　<div class="container">
+                <% if customer_signed_in? %>
+                    <li><%= link_to ' ABOUT', about_path %>
+                    <li><%= link_to ' PARTY', party_path %>
+                    <li><%= link_to ' WEDDING', wedding_path %>
+                    <li><%= link_to ' LOG OUT', destroy_customer_session_path, method: :delete %>
+                <% elsif admin_signed_in? %>
+                    <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %>
+                <% else %>
+                    <%= link_to ' ABOUT', about_path %>
+                    <%= link_to ' PARTY', party_path %>
+                    <%= link_to ' WEDDING', wedding_path %>
+                    <%= link_to ' 新規登録', new_customer_registration_path %>
+                    <%= link_to ' ログイン', new_customer_session_path %>
+                <% end %>
+            </div>
+
+
+            <div class="container">
+
+                <% if flash[:notice] %>
+                    <div class="alert alert-success"><%= flash[:notice] %></div>
+                <% elsif flash[:alert] %>
+                    <div class="alert alert-danger"><%= flash[:alert] %></div>
+                <% end %>
+
+
+                <%= yield %>
+
+            </div>
+
         </body>
 
 </html>
