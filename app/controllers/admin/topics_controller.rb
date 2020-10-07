@@ -5,10 +5,13 @@ class Admin::TopicsController < ApplicationController
 
 
     def new
+      @topic = Topic.new
     end
 
 
     def index
+      @topics = Topic.all.order(created_at: :desc)
+      @topic = Topic.new
     end
 
 
