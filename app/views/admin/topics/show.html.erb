@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+
+
+        <h2>TOPIC詳細</h2>
+
+        <div class="row">
+            <div id="topics">
+                <%= attachment_image_tag @topic, :image, format: 'jpeg', size: "150x150",  fallback: "no_image.jpg"%><br>
+                <%= @topic.updated_at.strftime("%Y-%m-%d %H:%M") %><br>
+                <%= @topic.title %><br>
+                <%= @topic.body %><br>
+                <%= link_to "Edit", edit_admin_topic_path(@topic.id) %> /
+			    <%= link_to "Destroy", admin_topic_path(@topic.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+            </div>
+        </div>
+
+
+    </div>
+</div>
