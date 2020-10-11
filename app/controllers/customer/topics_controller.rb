@@ -8,6 +8,7 @@ class Customer::TopicsController < ApplicationController
 
 
     def show
+      @topics = Topic.find(params[:id])
     end
 
 

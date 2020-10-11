@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
 
+
     belongs_to :admin
 
 
@@ -13,5 +14,16 @@ class Topic < ApplicationRecord
     validates :title, presence: true, length: {maximum: 30, minimum: 2}
     validates :body, presence: true
     validates :image, presence: true
+
+
+    def previous
+      Topic.where("id < ?", self.id).order("id DESC").first
+    end
+
+
+    def next
+      Topic.where("id > ?", self.id).order("id ASC").first
+    end
+
 
 end
