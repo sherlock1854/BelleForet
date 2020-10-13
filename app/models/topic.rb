@@ -16,6 +16,11 @@ class Topic < ApplicationRecord
     validates :image, presence: true
 
 
+    def favorited_by?(customer)
+      favorites.where(customer_id: customer.id).exists?
+    end
+
+
     def previous
       Topic.where("id < ?", self.id).order("id DESC").first
     end

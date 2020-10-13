@@ -4,8 +4,48 @@
 
         <div class="row">
             <div class="top_image">
-                
+
+                <%= image_tag asset_path("photo1.jpg") %>
+
+                <div>
+                    <%= image_tag asset_path("photo2.jpg"), class: "slick" %>
+                    <%= image_tag asset_path("photo3.jpg"), class: "slick" %>
+                </div>
+
+                <%= image_tag asset_path("photo4.jpg") %>
+
+                <div>
+                    <%= image_tag asset_path("photo5.jpg"), class: "slick" %>
+                    <%= image_tag asset_path("photo6.jpg"), class: "slick"  %>
+                </div>
+
+                <%= image_tag asset_path("photo7.jpg") %>
+
             </div>
+        </div>
+
+
+        <div class="row">
+            <%= link_to "新型コロナウイルス等の感染予防対策について", hygiene_path %>
+        </div>
+
+
+        <div class="title_customer_top">TOPICS</div>
+
+
+        <div class="row">
+            <% @topics.first(6).each do |topic| %>
+                <%= link_to topic_path(topic.id) do %>
+                    <%= topic.updated_at.strftime("%Y-%m-%d %H:%M") %><br>
+                    <%= attachment_image_tag topic, :image, format: 'jpeg',  fallback: "no_image.jpg"%><br>
+                    <%= topic.title %>
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div class="row">
+            <%= link_to "READ MORE", topics_path %>
         </div>
 
 

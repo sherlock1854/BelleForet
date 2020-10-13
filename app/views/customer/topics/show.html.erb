@@ -30,6 +30,47 @@
 
 
         <div class="row">
+            <% if customer_signed_in? %>
+                <% if @topics.favorited_by?(current_customer) %>
+                    <%= link_to topic_favorites_path(@topics), method: :delete do %>
+                        <%= @topics.favorites.count %>
+                    <% end %>
+                <% else %>
+                    <%= link_to topic_favorites_path(@topics), method: :post do %>
+                        <%= @topics.favorites.count %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div class= "title_comment">コメント</div>
+
+
+        <table>
+            <% @comments.each do |comment| %>
+                <tr>
+
+                    <td>
+                        <%= comment.customer.name %>
+                    </td>
+
+                    <td>
+                        <%= comment.comment %>
+                    </td>
+
+                    <td>
+                        <% if customer_signed_in? && comment.customer == current_customer %>
+                            <%= link_to "Destroy", topic_comment_path(comment), method: :delete %>
+                        <% end %>
+                    </td>
+
+                </tr>
+            <% end %>
+        </table>
+
+
+        <div class="row">
             <div class="page">
 
                 <% if @topics.previous.present? %>

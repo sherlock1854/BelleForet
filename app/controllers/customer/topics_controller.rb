@@ -9,6 +9,9 @@ class Customer::TopicsController < ApplicationController
 
     def show
       @topics = Topic.find(params[:id])
+      @comment = Comment.new
+  	  @comments = @topics.comments
+      @topic_new = Topic.new
     end
 
 
