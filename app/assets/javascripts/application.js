@@ -41,7 +41,8 @@ $(function() {
 //cusomer_party
 $(function() {
     $('.party_image').slick({
-
+        autoplay: true, //自動再生の有効化
+        speed: 12000, //アニメーションの切り替えスピード
     });
 });
 
